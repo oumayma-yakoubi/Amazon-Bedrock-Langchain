@@ -103,3 +103,38 @@ qa_chain = RetrievalQA.from_chain_type(llm=llm, retriever= retriever, return_sou
 qa_chain(query)
 
 ```
+
+# Tools : AWS Lambda
+
+Amazon AWS Lambda is a serverless computing service provided by AWS. It helps developpers to build and run applications and services without provisioning or managing servers. This serverless architecture enables you to focus on writing and deploying code, while AWS automatically takes care of scaling, patching, and managing the infrastructure required to run your applications.
+
+
+By including the AWS Lambda, in the list of tools provided to an Agent, you can grant your Agent the ability to invoke code running in your AWS Cloud for whatever purposes you need.
+
+When an Agent uses the AWS Lambda tool, it will provide an argument of type string which will in turn be passed into the Lambda function via the event parameter.
+
+In order for an Agent to use the tool, you must provide it with the name and description that match the functionality of your lambda function's logic.
+
+You must also provide the name of your function.
+
+```python 
+
+from langchain.agents import AgentType, initialize_agent, load_tools
+from langchain_openai import OpenAI
+
+llm = OpenAI(temperature = 0 )
+
+tools = load_tools(
+    ["awslambda"],
+    awslambda_tool_name = "email-sender"
+    awslambda_tool_description = "Sends an email with the specified content to test@test.com "
+    function_name = "testFuncion1",
+)
+
+agent = initialize_agent(
+    tools, llm, agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION, verbose=True
+)
+
+agent.run("Send an email to test@test.com saying Hello world.")
+
+```
