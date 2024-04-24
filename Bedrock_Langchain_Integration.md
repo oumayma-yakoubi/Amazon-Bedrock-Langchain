@@ -1,6 +1,6 @@
-## The Langchain integrations related to Amazon AWS platform : Amazon Bedrock 
+## The Langchain integrations related to Amazon AWS platform: Amazon Bedrock 
 
-Amazon Bedrock is a fully managed service that offers a choice of high-performing foundation models (FMs)from leading AI companies like AI21 Labs, Anthropic, Cohere, Meta, Stability AI, and Amazon via a signle API, along  with a broad set of capabilities you need to build generative AI applications with security, privacy and responsible AI. Using Amazon Bedrock, you can easly experiment with and evaluate top FMs for your use case, privately customize them with your data using techniques such as fine-tuning and Retrieval Agmented Generation (RAG), and build agents that execute tasks using your enterprise systems and data sources. Since Amazon Bedrock is serveless, you don't have to manage any infrastructure, and you can securely integrate and deploy generative AI capabilities into your applications using the AWS services you are already familiar with.
+Amazon Bedrock is a fully managed service that offers a choice of high-performing foundation models (FMs) from leading AI companies like AI21 Labs, Anthropic, Cohere, Meta, Stability AI, and Amazon via a single API, along  with a broad set of capabilities you need to build generative AI applications with security, privacy and responsible AI. Using Amazon Bedrock, you can easily experiment with and evaluate top FMs for your use case, privately customize them with your data using techniques such as fine-tuning and Retrieval Augmented Generation (RAG), and build agents that execute tasks using your enterprise systems and data sources. Since Amazon Bedrock is serverless, you don't have to manage any infrastructure, and you can securely integrate and deploy generative AI capabilities into your applications using the AWS services you are already familiar with.
 
 # LLMs 
 
@@ -65,11 +65,11 @@ embeddings.embed_documents(["This is a content of the document", "This is anothe
 
 # Amazon Bedrock (Knowledge Bases)
 
-Knowledge bases for Amazon Bedrock is an Amazon Web Services (AWS) offering which lets you quickly build RAG applications by using your private data to customize foundation model response
+**Knowledge bases for Amazon Bedrock** is an Amazon Web Services (AWS) offering which lets you quickly build RAG applications by using your private data to customize foundation model response
 
-Implementing RAG requires organization to perfom several cumbersome steps to convert data into embeddings(vectors), store the embeddings in a specialized vector database, and build custom integrations into the database and retrieve text relevant to the user's query. This can be time-consuming and inefficient.
+Implementing **RAG** requires organizations to perform several cumbersome steps to convert data into embeddings(vectors), store the embeddings in a specialized vector database, build custom integrations into the database, and retrieve text relevant to the user's query. This can be time-consuming and inefficient.
 
-With Knowledge Bases for Amazon Bedrock, simply point to the location of your data in Amazon S3, and knowledge bases for Amazon Bedrock takes care of the entire ingestion workflow into your vector database. If you do not have an existing vector database, Amazon Bedrock creates an Amazon OpenSearch Serverless vector store for you. For retrievals, use the Langchain-Amazon Bedrock integration via the Retrieve API to retrieve relevent results for a user query from knowledge bases.
+With **Knowledge Bases** for Amazon Bedrock, simply point to the location of your data in Amazon S3, and knowledge bases for Amazon Bedrock takes care of the entire ingestion workflow into your vector database. If you do not have an existing vector database, Amazon Bedrock creates an Amazon OpenSearch Serverless vector store for you. For retrievals, use the Langchain-Amazon Bedrock integration via the Retrieve API to retrieve relevant results for a user query from knowledge bases.
 
 ## The Knowledge Bases Retriever
 
@@ -86,7 +86,7 @@ retriever = AmazonKnowledgeBasesRetriever(
 
 ## Using the Knowledge Bases Retriever in a QA chain 
 
-- RestrievalQA : Chain of question-answering against an index
+- RestrievalQA: Chain of question-answering against an index
 
 ```python
 
@@ -104,16 +104,16 @@ qa_chain(query)
 
 ```
 
-# Tools : AWS Lambda
+# Tools: AWS Lambda
 
-Amazon AWS Lambda is a serverless computing service provided by AWS. It helps developpers to build and run applications and services without provisioning or managing servers. This serverless architecture enables you to focus on writing and deploying code, while AWS automatically takes care of scaling, patching, and managing the infrastructure required to run your applications.
+Amazon AWS Lambda is a serverless computing service provided by AWS. It helps developers to build and run applications and services without provisioning or managing servers. This serverless architecture enables you to focus on writing and deploying code, while AWS automatically takes care of scaling, patching, and managing the infrastructure required to run your applications.
 
 
 By including the AWS Lambda, in the list of tools provided to an Agent, you can grant your Agent the ability to invoke code running in your AWS Cloud for whatever purposes you need.
 
 When an Agent uses the AWS Lambda tool, it will provide an argument of type string which will in turn be passed into the Lambda function via the event parameter.
 
-In order for an Agent to use the tool, you must provide it with the name and description that match the functionality of your lambda function's logic.
+In order for an Agent to use the tool, you must provide it with a name and description that match the functionality of your lambda function's logic.
 
 You must also provide the name of your function.
 
