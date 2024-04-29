@@ -47,7 +47,7 @@ conversation.predict(input= "Hi there!")
 
 from langchain_community.embeddings import BedrockEmbeddings 
 
-embeddings = BedrocEmbeddings( credentials_profile_name="bedrock-admin", region_name="us-east-1")
+embeddings = BedrockEmbeddings( credentials_profile_name="bedrock-admin", region_name="us-east-1")
 
 ```
 
